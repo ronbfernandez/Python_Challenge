@@ -56,6 +56,29 @@ print("---------------")
 
 
 
+## I wasn't able to figure out exporting a text file with the PyBbnk or Pypoll results in time.  
+## Below was my last attempt of code script below, I may be confused and thought that I was originally writing a CSV file, which is not what was asked. I will need to look into this again.
+
+with open(output_path, "w", newline='') as textfile:
+    print("Election Results", file=textfile)
+    print("------------------", file=textfile)
+    print(f"Total Votes: {int(total_votes)}", file=textfile)
+filewriter.write ("------------------", file=textfile)
+i = 0
+for candidate, vote in candidates.items():
+    print(f'{candidate}, {vote}, {votes_per[i]}', file=textfile)
+    i+=1    
+filewriter.write("------------------", file=textfile)
+
+filewriter.write("------------------", file=textfile)
+filewriter.write(f"Winner: {winner}", file=textfile)
+filewriter.write("-------------------", file=textfile)
+
+with open(output_path, newline='') as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',')
+    for row in csvreader:
+        print(row)
+
 
 
 
